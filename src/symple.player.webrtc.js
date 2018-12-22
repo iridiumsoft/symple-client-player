@@ -105,7 +105,7 @@
 
       // If there is an active stream then play it now.
       if (this.stream) {
-        this.video.src = URL.createObjectURL(this.stream)
+        this.video.srcObject = this.stream
         this.video.play()
         this.setState('playing')
         return
@@ -124,7 +124,7 @@
         navigator.getUserMedia(this.options.userMediaConstraints,
                       function (localStream) { // success
                         // Play the local video stream and create the SDP offer.
-                        self.video.src = URL.createObjectURL(localStream)
+                         self.video.srcObject = localStream
                         self.pc.addStream(localStream)
                         self.pc.createOffer(
                               function (desc) { // success
@@ -245,7 +245,7 @@
         // This is the best we can do until ICE onstatechange is implemented.
         self.setState('playing')
 
-        self.video.src = URL.createObjectURL(event.stream)
+        self.video.srcObject = event.stream
         self.video.play()
 
         // Store the active stream
