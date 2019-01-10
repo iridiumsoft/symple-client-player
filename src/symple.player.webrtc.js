@@ -239,7 +239,7 @@
         }
       }
       this.pc.onaddstream = function (event) {
-        S.log('symple:webrtc: remote stream added', URL.createObjectURL(event.stream))
+        S.log('symple:webrtc: remote stream added', event)
 
         // Set the state to playing once candidates have completed gathering.
         // This is the best we can do until ICE onstatechange is implemented.
